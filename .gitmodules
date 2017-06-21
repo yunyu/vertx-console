@@ -1,0 +1,12 @@
+[submodule "vertx-console-base"]
+	path = vertx-console-base
+	url = https://github.com/yunyu/vertx-console-base.git
+[submodule "vertx-console-metrics"]
+	path = vertx-console-metrics
+	url = https://github.com/yunyu/vertx-console-metrics.git
+[submodule "vertx-console-services"]
+	path = vertx-console-services
+	url = https://github.com/yunyu/vertx-console-services.git
+[submodule "vertx-console-logging"]
+	path = vertx-console-logging
+	url = https://github.com/yunyu/vertx-console-logging.git
