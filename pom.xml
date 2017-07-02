@@ -41,6 +41,7 @@
     	<module>vertx-console-metrics</module>
     	<module>vertx-console-services</module>
     	<module>vertx-console-logging</module>
+    	<module>vertx-console-circuit-breakers</module>
     </modules>
 
     <dependencies>

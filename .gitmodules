@@ -10,3 +10,6 @@
 [submodule "vertx-console-logging"]
 	path = vertx-console-logging
 	url = https://github.com/yunyu/vertx-console-logging.git
+[submodule "vertx-console-circuit-breakers"]
+	path = vertx-console-circuit-breakers
+	url = https://github.com/yunyu/vertx-console-circuit-breakers.git
