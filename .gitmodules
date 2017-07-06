@@ -13,3 +13,6 @@
 [submodule "vertx-console-circuit-breakers"]
 	path = vertx-console-circuit-breakers
 	url = https://github.com/yunyu/vertx-console-circuit-breakers.git
+[submodule "vertx-console-shell"]
+	path = vertx-console-shell
+	url = https://github.com/yunyu/vertx-console-shell.git
