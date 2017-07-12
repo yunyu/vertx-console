@@ -16,3 +16,6 @@
 [submodule "vertx-console-shell"]
 	path = vertx-console-shell
 	url = https://github.com/yunyu/vertx-console-shell.git
+[submodule "vertx-console-health"]
+	path = vertx-console-health
+	url = https://github.com/yunyu/vertx-console-health.git
