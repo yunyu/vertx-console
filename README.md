@@ -35,6 +35,7 @@ Then, create a `WebConsoleRegistry` in your application with a specified path, a
 
 	// Example with several pages loaded
     WebConsoleRegistry.create("/admin")
+    		// Add pages
             .addPage(MetricsConsolePage.create(dropwizardRegistry))
             .addPage(ServicesConsolePage.create(discovery))
             .addPage(LoggingConsolePage.create())
@@ -42,6 +43,7 @@ Then, create a `WebConsoleRegistry` in your application with a specified path, a
             .addPage(ShellConsolePage.create())
             .addPage(HealthConsolePage.create(healthChecks))
             .setCacheBusterEnabled(true) // Adds random query string to scripts
+            // Mount to router
             .mount(vertx, router);
 
 The available pages and their setup instructions are listed below.
@@ -118,4 +120,21 @@ Once these have been added, [create a service discovery instance](http://vertx.i
 
         // ServiceDiscovery discovery = ...
         // Set up web console registry
-        webConsoleRegistry.addPage(ServicesConsolePage.create(discovery))
+        webConsoleRegistry.addPage(ServicesConsolePage.create(discovery));
+
+vertx-console-logging
+==
+
+This page allows you to view and configure loggers and their outputs. It is currently only compatible with Logback and SLF4J (due to difficulties with integrating appenders with Log4J2).
+It requires the following dependency (assuming that you already have Logback and SLF4J configured in your application):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-logging</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once this has been added, you can directly add the console page. For example:
+
+        // Set up web console registry
+		webConsoleRegistry.addPage(LoggingConsolePage.create())；
