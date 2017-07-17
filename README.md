@@ -51,7 +51,7 @@ The available pages and their setup instructions are listed below.
 For security reasons, you should set up an authentication mechanism and CSRF handler for the `/admin/*` route.
 See Vert.x Web documentation for details.
 
-The console will be accessible at the specified path (`/admin` for this example).
+The console will be accessible at the specified path (`/admin` in this example).
 
 vertx-console-metrics
 ==
@@ -172,3 +172,20 @@ Once these have been added, you can add the console page directly. For example:
 
         // Set up web console registry
         webConsoleRegistry.addPage(ShellConsolePage.create());
+
+vertx-console-health
+==
+
+This page allows you to view the status of the health checks in your application.
+It requires the following dependency (assuming that you have already [set up health checks](http://vertx.io/docs/vertx-health-check/java/#_using_vert_x_health_checks)):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-health</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once these have been added, pass your health checks instance to the console page. For example:
+
+        // Set up web console registry
+        webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
