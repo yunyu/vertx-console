@@ -46,12 +46,19 @@ The available pages and their setup instructions are listed below.
 For security reasons, you should set up an authentication mechanism and CSRF handler for the `/admin/*` route.
 See Vert.x Web documentation for details.
 
+The console will be accessible at the specified path (`/admin` for this example).
+
 vertx-console-metrics
 ==
 
 This page displays an overview of your application, and displays several important metrics (heap usage, HTTP requests, event bus, etc...).
 It requires the following dependencies (note: the versions listed may not be the most recent, which you can use):
 
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-metrics</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-dropwizard-metrics</artifactId>
