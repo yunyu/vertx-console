@@ -56,6 +56,8 @@ The console will be accessible at the specified path (`/admin` in this example).
 vertx-console-metrics
 ==
 
+![](https://i.imgur.com/C3eru7X.png)
+
 This page displays an overview of your application, and includes several important metrics (heap usage, HTTP requests, event bus, etc...) as well as the ability to deploy verticles.
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
 
@@ -102,6 +104,8 @@ The metrics page uses the default Prometheus registry. If you wish to use it wit
 vertx-console-services
 ==
 
+![](https://i.imgur.com/53aYPiu.png)
+
 This page displays a filterable list of the service records available to Vert.x.
 It requires the following dependency (assuming that you have already [set up service discovery](http://vertx.io/docs/vertx-service-discovery/java/#_creating_a_service_discovery_instance)):
 
@@ -120,6 +124,8 @@ Once these have been added, pass your service discovery instance to the console 
 vertx-console-logging
 ==
 
+![](https://i.imgur.com/KU8PoSX.png)
+
 This page allows you to view and configure loggers and their outputs. It is currently only compatible with Logback and SLF4J (due to difficulties with integrating appenders with Log4J2).
 It requires the following dependency (assuming that you already have Logback and SLF4J configured in your application):
 
@@ -137,6 +143,8 @@ Once this has been added, you can add the console page directly. For example:
 vertx-console-circuit-breakers
 ==
 
+![](https://i.imgur.com/G56nGtH.png)
+
 This page allows you to view the status of the circuit breakers in your application.
 It requires the following dependency (assuming that you have already [set up circuit breakers](http://vertx.io/docs/vertx-circuit-breaker/java/#_using_the_vert_x_circuit_breaker)):
 
@@ -153,6 +161,8 @@ Once this has been added, you can add the console page directly. For example:
 
 vertx-console-shell
 ==
+
+![](https://i.imgur.com/DlmyqeK.png)
 
 This page allows you to administer your application via [Vert.x-Shell](http://vertx.io/docs/vertx-shell/java/#_base_commands).
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
@@ -175,6 +185,8 @@ Once these have been added, you can add the console page directly. For example:
 
 vertx-console-health
 ==
+
+![](https://i.imgur.com/4W10UQG.png)
 
 This page allows you to view the status of the health checks in your application.
 It requires the following dependency (assuming that you have already [set up health checks](http://vertx.io/docs/vertx-health-check/java/#_using_vert_x_health_checks)):
