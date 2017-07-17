@@ -56,7 +56,7 @@ The console will be accessible at the specified path (`/admin` for this example)
 vertx-console-metrics
 ==
 
-This page displays an overview of your application, and displays several important metrics (heap usage, HTTP requests, event bus, etc...).
+This page displays an overview of your application, and includes several important metrics (heap usage, HTTP requests, event bus, etc...) as well as the ability to deploy verticles.
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
 
         <dependency>
@@ -103,20 +103,15 @@ vertx-console-services
 ==
 
 This page displays a filterable list of the service records available to Vert.x.
-It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
+It requires the following dependency (assuming that you have already [set up service discovery](http://vertx.io/docs/vertx-service-discovery/java/#_creating_a_service_discovery_instance)):
 
         <dependency>
             <groupId>com.github.yunyu.vertx-console</groupId>
             <artifactId>vertx-console-services</artifactId>
             <version>${vertx.console.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-service-discovery</artifactId>
-            <version>3.4.2</version>
-        </dependency>
 
-Once these have been added, [create a service discovery instance](http://vertx.io/docs/vertx-service-discovery/java/#_creating_a_service_discovery_instance) and pass it to a console page instance. For example:
+Once these have been added, pass your service discovery instance to the console page. For example:
 
         // ServiceDiscovery discovery = ...
         // Set up web console registry
@@ -134,7 +129,25 @@ It requires the following dependency (assuming that you already have Logback and
             <version>${vertx.console.version}</version>
         </dependency>
 
-Once this has been added, you can directly add the console page. For example:
+Once this has been added, you can add the console page directly. For example:
 
         // Set up web console registry
-		webConsoleRegistry.addPage(LoggingConsolePage.create())；
+        webConsoleRegistry.addPage(LoggingConsolePage.create());
+
+vertx-console-circuit-breakers
+==
+
+This page allows you to view the status of the circuit breakers in your application.
+It requires the following dependency (assuming that you have already [set up circuit breakers](http://vertx.io/docs/vertx-circuit-breaker/java/#_using_the_vert_x_circuit_breaker)):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-circuit-breakers</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once this has been added, you can add the console page directly. For example:
+
+        // Set up web console registry
+        webConsoleRegistry.addPage(CircuitBreakersConsolePage.create());
+
