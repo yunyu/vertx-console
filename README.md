@@ -151,3 +151,24 @@ Once this has been added, you can add the console page directly. For example:
         // Set up web console registry
         webConsoleRegistry.addPage(CircuitBreakersConsolePage.create());
 
+vertx-console-shell
+==
+
+This page allows you to administer your application via [Vert.x-Shell](http://vertx.io/docs/vertx-shell/java/#_base_commands).
+It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-shell</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-shell</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
+Once these have been added, you can add the console page directly. For example:
+
+        // Set up web console registry
+        webConsoleRegistry.addPage(ShellConsolePage.create());
