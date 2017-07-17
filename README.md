@@ -2,7 +2,7 @@ Vert.x Console
 ==
 
 This is a configurable administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks.
-The backend component uses Vert.x-Web, which is required for the console.
+The backend component requires Vert.x-Web.
 
 To use, merge the following into your POM (or the equivalent into your Gradle build script):
 
@@ -49,7 +49,7 @@ Then, create a `WebConsoleRegistry` in your application with a specified path, a
 The available pages and their setup instructions are listed below.
 
 For security reasons, you should set up an authentication mechanism and CSRF handler for the `/admin/*` route.
-See Vert.x Web documentation for details.
+See Vert.x Web documentation for details ([regarding auth](http://vertx.io/docs/vertx-web/java/#_creating_an_auth_handler), [regarding CSRF protection](http://vertx.io/docs/vertx-web/java/#_csrf_cross_site_request_forgery)).
 
 The console will be accessible at the specified path (`/admin` in this example).
 
@@ -201,3 +201,8 @@ Once these have been added, pass your health checks instance to the console page
 
         // Set up web console registry
         webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
+
+API
+==
+
+Documentation for the API and a console page template are currently in-progress. Stay tuned!
