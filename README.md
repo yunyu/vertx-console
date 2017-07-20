@@ -202,6 +202,27 @@ Once these have been added, pass your health checks instance to the console page
         // Set up web console registry
         webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
 
+vertx-console-pools
+==
+
+![](https://i.imgur.com/RwXmJCX.png)
+
+This page allows you to view the status of the worker and data source pools in your application.
+You need to have a working metrics setup in order to use it (see the [vertx-console-metrics](#vertx-console-metrics) section for details), but adding the Overview page is optional.
+It requires the following dependency (on top of the ones necessary for metrics):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-pools</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once these have been added, pass your MetricsService instance to the console page. For example:
+
+        // Set up web console registry
+        MetricsService metricsService = MetricsService.create(vertx);
+        webConsoleRegistry.addPage(PoolsConsolePage.create(metricsService));
+
 API
 ==
 
