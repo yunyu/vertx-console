@@ -205,7 +205,7 @@ Once these have been added, pass your health checks instance to the console page
 vertx-console-pools
 ==
 
-![](https://i.imgur.com/RwXmJCX.png)
+![](https://i.imgur.com/9w4kk5U.png)
 
 This page allows you to view the status of the worker and data source pools in your application.
 You need to have a working metrics setup in order to use it (see the [vertx-console-metrics](#vertx-console-metrics) section for details), but adding the Overview page is optional.
