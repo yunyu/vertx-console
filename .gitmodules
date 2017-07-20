@@ -19,3 +19,6 @@
 [submodule "vertx-console-health"]
 	path = vertx-console-health
 	url = https://github.com/yunyu/vertx-console-health.git
+[submodule "vertx-console-pools"]
+	path = vertx-console-pools
+	url = https://github.com/yunyu/vertx-console-pools.git

@@ -44,6 +44,7 @@
     	<module>vertx-console-circuit-breakers</module>
     	<module>vertx-console-shell</module>
     	<module>vertx-console-health</module>
+        <module>vertx-console-pools</module>
     </modules>
 
     <dependencies>
