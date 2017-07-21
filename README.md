@@ -186,7 +186,7 @@ Once these have been added, you can add the console page directly. For example:
 vertx-console-health
 ==
 
-![](https://i.imgur.com/4W10UQG.png)
+![](https://i.imgur.com/ngaG9kA.png)
 
 This page allows you to view the status of the health checks in your application.
 It requires the following dependency (assuming that you have already [set up health checks](http://vertx.io/docs/vertx-health-check/java/#_using_vert_x_health_checks)):
