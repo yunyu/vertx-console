@@ -106,7 +106,7 @@ The metrics page uses the default Prometheus registry. If you wish to use it wit
 vertx-console-services
 ==
 
-![](https://i.imgur.com/53aYPiu.png)
+![](https://i.imgur.com/dfbvdHO.png)
 
 This page displays a filterable list of the service records available to Vert.x.
 It requires the following dependency (assuming that you have already [set up service discovery](http://vertx.io/docs/vertx-service-discovery/java/#_creating_a_service_discovery_instance)):
@@ -188,7 +188,7 @@ Once these have been added, you can add the console page directly. For example:
 vertx-console-health
 ==
 
-![](https://i.imgur.com/ngaG9kA.png)
+![](https://i.imgur.com/W4tKZtw.png)
 
 This page allows you to view the status of the health checks in your application.
 It requires the following dependency (assuming that you have already [set up health checks](http://vertx.io/docs/vertx-health-check/java/#_using_vert_x_health_checks)):
