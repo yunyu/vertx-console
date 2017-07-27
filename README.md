@@ -58,7 +58,7 @@ The console will be accessible at the specified path (`/admin` in this example).
 vertx-console-metrics
 ==
 
-![](https://i.imgur.com/C3eru7X.png)
+![](https://i.imgur.com/iMmH2SY.png)
 
 This page displays an overview of your application, and includes several important metrics (heap usage, HTTP requests, event bus, etc...) as well as the ability to deploy verticles.
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
