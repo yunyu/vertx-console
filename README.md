@@ -51,7 +51,7 @@ Then, create a `WebConsoleRegistry` in your application with a specified path, a
 The available pages and their setup instructions are listed below.
 
 For security reasons, you should set up an authentication mechanism and CSRF handler for the `/admin/*` route.
-See Vert.x Web documentation for details ([regarding auth](http://vertx.io/docs/vertx-web/java/#_creating_an_auth_handler), [regarding CSRF protection](http://vertx.io/docs/vertx-web/java/#_csrf_cross_site_request_forgery)).
+See Vert.x Web documentation for details ([regarding auth](http://vertx.io/docs/vertx-web/java/#_creating_an_auth_handler), [regarding CSRF protection](http://vertx.io/docs/vertx-web/java/#_csrf_cross_site_request_forgery)). Also consider enabling [gzip compression](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerOptions.html#setCompressionSupported-boolean-) in production, as it could potentially reduce bandwidth usage by a sizable amount.
 
 The console will be accessible at the specified path (`/admin` in this example).
 
