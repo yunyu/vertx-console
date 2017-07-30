@@ -45,6 +45,7 @@
     	<module>vertx-console-shell</module>
     	<module>vertx-console-health</module>
         <module>vertx-console-pools</module>
+        <module>vertx-console-eventbus</module>
     </modules>
 
     <dependencies>

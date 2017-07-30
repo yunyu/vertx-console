@@ -22,3 +22,6 @@
 [submodule "vertx-console-pools"]
 	path = vertx-console-pools
 	url = https://github.com/yunyu/vertx-console-pools.git
+[submodule "vertx-console-eventbus"]
+	path = vertx-console-eventbus
+	url = https://github.com/yunyu/vertx-console-eventbus.git
