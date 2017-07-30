@@ -228,4 +228,4 @@ Once these have been added, pass your MetricsService instance to the console pag
 API
 ==
 
-Documentation for the API and a console page template are currently in-progress. Stay tuned!
+Documentation for the API is currently in-progress. In the meantime, an [example console page](https://github.com/yunyu/vertx-console-example) template is available.
