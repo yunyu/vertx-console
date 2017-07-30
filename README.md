@@ -1,7 +1,7 @@
 Vert.x Console
 ==
 
-This is a configurable, extensible administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks.
+This is a configurable, extensible administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks. A video demo is available [here](https://www.youtube.com/watch?v=I3ZWuOngesU).
 The backend component requires Vert.x-Web.
 
 The frontend uses the [PatternFly](http://www.patternfly.org/) CSS framework with [Vue.js](https://vuejs.org/) components and the [axios](https://github.com/mzabriskie/axios) HTTP client. Note that there is no requirement for console pages to be written with Vue, simply exporting a Vue-compatible [render function](https://vuejs.org/v2/guide/render-function.html) and appropriate `mounted` and `destroyed` methods (referencing `this.$el`) will allow you to use any framework you wish.
