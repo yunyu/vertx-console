@@ -25,3 +25,6 @@
 [submodule "vertx-console-eventbus"]
 	path = vertx-console-eventbus
 	url = https://github.com/yunyu/vertx-console-eventbus.git
+[submodule "vertx-console-http-clients"]
+	path = vertx-console-http-clients
+	url = https://github.com/yunyu/vertx-console-http-clients.git

@@ -46,6 +46,7 @@
     	<module>vertx-console-health</module>
         <module>vertx-console-pools</module>
         <module>vertx-console-eventbus</module>
+        <module>vertx-console-http-clients</module>
     </modules>
 
     <dependencies>
