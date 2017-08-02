@@ -16,7 +16,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
     </repositories>
 
     <properties>
-        <vertx.console.version>0242681b81</vertx.console.version>
+        <vertx.console.version>48a979a2eb</vertx.console.version>
     </properties>
 
     <dependencies>
