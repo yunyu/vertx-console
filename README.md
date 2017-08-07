@@ -228,7 +228,7 @@ Once these have been added, pass your MetricsService instance to the console pag
 vertx-console-eventbus
 ==
 
-![](https://i.imgur.com/j4bRaME.png)
+![](https://i.imgur.com/NovstcH.png)
 
 This page provides an overview of the event bus activity in your application, with message rates for monitored addresses (see [setup instructions](http://vertx.io/docs/vertx-dropwizard-metrics/java/#_event_bus_metrics)).
 It requires the following dependency (on top of the ones necessary for metrics):
@@ -248,7 +248,7 @@ Once these have been added, pass your MetricsService instance to the console pag
 vertx-console-http-clients
 ==
 
-![](https://i.imgur.com/5R0ndKT.png)
+![](https://i.imgur.com/yTsA1UY.png)
 
 This page provides an overview of the HTTP clients that are used in your application. 
 It requires the following dependency (on top of the ones necessary for metrics):
