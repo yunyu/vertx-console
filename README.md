@@ -16,7 +16,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
     </repositories>
 
     <properties>
-        <vertx.console.version>48a979a2eb</vertx.console.version>
+        <vertx.console.version>cdb5220c25</vertx.console.version>
     </properties>
 
     <dependencies>
@@ -224,6 +224,46 @@ Once these have been added, pass your MetricsService instance to the console pag
         // Set up web console registry
         MetricsService metricsService = MetricsService.create(vertx);
         webConsoleRegistry.addPage(PoolsConsolePage.create(metricsService));
+
+vertx-console-eventbus
+==
+
+![](https://i.imgur.com/j4bRaME.png)
+
+This page provides an overview of the event bus activity in your application, with message rates for monitored addresses (see [setup instructions](http://vertx.io/docs/vertx-dropwizard-metrics/java/#_event_bus_metrics)).
+It requires the following dependency (on top of the ones necessary for metrics):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-eventbus</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once these have been added, pass your MetricsService instance to the console page. For example:
+
+        // Set up web console registry
+        MetricsService metricsService = MetricsService.create(vertx);
+        webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+
+vertx-console-http-clients
+==
+
+![](https://i.imgur.com/5R0ndKT.png)
+
+This page provides an overview of the HTTP clients that are used in your application. 
+It requires the following dependency (on top of the ones necessary for metrics):
+
+        <dependency>
+            <groupId>com.github.yunyu.vertx-console</groupId>
+            <artifactId>vertx-console-http-clients</artifactId>
+            <version>${vertx.console.version}</version>
+        </dependency>
+
+Once these have been added, pass your MetricsService instance to the console page. For example:
+
+        // Set up web console registry
+        MetricsService metricsService = MetricsService.create(vertx);
+        webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
 
 API
 ==
