@@ -16,7 +16,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
     </repositories>
 
     <properties>
-        <vertx.console.version>d50eafa20a</vertx.console.version>
+        <vertx.console.version>839ddc17dc</vertx.console.version>
     </properties>
 
     <dependencies>
@@ -248,7 +248,7 @@ Once these have been added, pass your MetricsService instance to the console pag
 vertx-console-http-clients
 ==
 
-![](https://i.imgur.com/yTsA1UY.png)
+![](https://i.imgur.com/ZMNSQtj.png)
 
 This page provides an overview of the HTTP clients that are used in your application. 
 It requires the following dependency (on top of the ones necessary for metrics):
