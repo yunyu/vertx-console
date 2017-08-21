@@ -86,7 +86,7 @@ It requires the following dependencies (note: the versions listed may not be the
         <dependency>
             <groupId>com.github.yunyu</groupId>
             <artifactId>prometheus-jvm-extras</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.2-SNAPSHOT</version>
         </dependency>
 
 Once these have been added, enable metrics when starting your application and [set a name for the registry](http://vertx.io/docs/vertx-dropwizard-metrics/java/#_command_line_activation). For example, you can add the following flags:
