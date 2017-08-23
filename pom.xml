@@ -39,9 +39,9 @@
                 <version>2.10.1</version>
                 <executions>
                     <execution>
-                        <id>aggregate</id>
+                        <id>attach-javadoc</id>
                         <goals>
-                            <goal>aggregate</goal>
+                            <goal>aggregate-jar</goal>
                         </goals>
                     </execution>
                 </executions>
