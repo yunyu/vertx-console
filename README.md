@@ -16,7 +16,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
     </repositories>
 
     <properties>
-        <vertx.console.version>feff821248</vertx.console.version>
+        <vertx.console.version>7b223ea703</vertx.console.version>
     </properties>
 
     <dependencies>
@@ -268,6 +268,6 @@ Once these have been added, pass your MetricsService instance to the console pag
 API
 ==
 
-Javadocs for the latest version are available [on JitPack](https://jitpack.io/com/github/yunyu/vertx-console/vertx-console-parent/feff821248/javadoc/).
+Javadocs for the latest version are available [on JitPack](https://jitpack.io/com/github/yunyu/vertx-console/vertx-console-parent/7b223ea703/javadoc/).
 
 If you are developing a console page, please see the [example project template](https://github.com/yunyu/vertx-console-example).
