@@ -101,6 +101,8 @@ Then, acquire a reference to the metrics registry to create the page. For exampl
         // Set up web console registry
         webConsoleRegistry.addPage(MetricsConsolePage.create(dropwizardRegistry));
 
+If you are not using the [Vert.x launcher](http://vertx.io/docs/vertx-core/java/#_the_vert_x_launcher) to start your application, you may need to pass the metrics flags into [DropwizardMetricsOptions](http://vertx.io/docs/apidocs/io/vertx/ext/dropwizard/DropwizardMetricsOptions.html) on startup.
+
 The metrics page uses the default Prometheus registry. If you wish to use it with another registry, register the appropriate collectors as [listed here](https://github.com/yunyu/vertx-console-metrics/blob/49a70a5ea43f9bf7d6961278a756d378225f1748/src/main/java/in/yunyul/vertx/console/metrics/MetricsConsolePage.java#L24), and use `MetricsConsolePage.create(CollectorRegistry myPrometheusRegistry)`.
 
 vertx-console-services
