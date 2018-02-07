@@ -1,6 +1,8 @@
 Vert.x Console
 ==
 
+**Note: Due to several [bugs](https://github.com/vert-x3/vertx-web/commit/23e10d6a4eca3774e040fcb3fc1e5684ea41759c) in Vert.x-web that landed in 3.5.0 (and are currently fixed in the master branch), this project doesn't currently support 3.5.0. It will be updated when 3.5.1 is released.**
+
 This is a configurable, extensible administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks. A video demo is available [here](https://www.youtube.com/watch?v=I3ZWuOngesU).
 The backend component requires Vert.x-Web.
 
