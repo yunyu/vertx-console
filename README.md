@@ -1,8 +1,6 @@
 Vert.x Console
 ==
 
-**Note: Due to several [bugs](https://github.com/vert-x3/vertx-web/commit/23e10d6a4eca3774e040fcb3fc1e5684ea41759c) in Vert.x-web that landed in 3.5.0 (and are currently fixed in the master branch), this project doesn't currently support 3.5.0. It will be updated when 3.5.1 is released.**
-
 This is a configurable, extensible administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks. A video demo is available [here](https://www.youtube.com/watch?v=I3ZWuOngesU).
 The backend component requires Vert.x-Web.
 
@@ -73,7 +71,7 @@ It requires the following dependencies (note: the versions listed may not be the
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-dropwizard-metrics</artifactId>
-            <version>3.4.2</version>
+            <version>3.5.1</version>
         </dependency>
         <dependency>
             <groupId>io.prometheus</groupId>
@@ -181,7 +179,7 @@ It requires the following dependencies (note: the versions listed may not be the
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-shell</artifactId>
-            <version>3.4.2</version>
+            <version>3.5.1</version>
         </dependency>
 
 Once these have been added, you can add the console page directly. For example:
