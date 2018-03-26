@@ -1,6 +1,8 @@
 Vert.x Console
 ==
 
+[![Release](https://jitpack.io/v/yunyu/vertx-console.svg?style=flat-square)](https://jitpack.io/#yunyu/vertx-console)
+
 This is a configurable, extensible administration console for Vert.x applications that provides a web interface for common administration and monitoring tasks. A video demo is available [here](https://www.youtube.com/watch?v=I3ZWuOngesU).
 The backend component requires Vert.x-Web.
 
@@ -16,7 +18,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
     </repositories>
 
     <properties>
-        <vertx.console.version>95c911d7f0</vertx.console.version>
+        <vertx.console.version>95c911d</vertx.console.version>
     </properties>
 
     <dependencies>
