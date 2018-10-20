@@ -9,45 +9,49 @@ The frontend uses the [PatternFly](http://www.patternfly.org/) CSS framework wit
 
 To use, merge the following into your POM (or the equivalent into your Gradle build script):
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 
-    <properties>
-        <vertx.console.version>95c911d</vertx.console.version>
-    </properties>
+<properties>
+    <vertx.console.version>ca8b2b517f</vertx.console.version>
+</properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-base</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
-        <!-- Insert console pages here, e.g. -->
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-services</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
-    </dependencies>
+<dependencies>
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-base</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+    <!-- Insert console pages here, e.g. -->
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-services</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+</dependencies>
+```
 
 Then, create a `WebConsoleRegistry` in your application with a specified path, add the pages you wish to display, and mount it to a router:
 
-    // Example with several pages loaded
-    WebConsoleRegistry.create("/admin")
-    		// Add pages
-            .addPage(MetricsConsolePage.create(dropwizardRegistry))
-            .addPage(ServicesConsolePage.create(discovery))
-            .addPage(LoggingConsolePage.create())
-            .addPage(CircuitBreakersConsolePage.create())
-            .addPage(ShellConsolePage.create())
-            .addPage(HealthConsolePage.create(healthChecks))
-            .setCacheBusterEnabled(true) // Adds random query string to scripts
-            // Mount to router
-            .mount(vertx, router);
+```java
+// Example with several pages loaded
+WebConsoleRegistry.create("/admin")
+        // Add pages
+        .addPage(MetricsConsolePage.create(dropwizardRegistry))
+        .addPage(ServicesConsolePage.create(discovery))
+        .addPage(LoggingConsolePage.create())
+        .addPage(CircuitBreakersConsolePage.create())
+        .addPage(ShellConsolePage.create())
+        .addPage(HealthConsolePage.create(healthChecks))
+        .setCacheBusterEnabled(true) // Adds random query string to scripts
+        // Mount to router
+        .mount(vertx, router);
+```
 
 The available pages and their setup instructions are listed below.
 
@@ -63,31 +67,33 @@ The console will be accessible at the specified path (`/admin` in this example).
 This page displays an overview of your application, and includes several important metrics (heap usage, HTTP requests, event bus, etc...) as well as the ability to deploy verticles.
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-metrics</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-dropwizard-metrics</artifactId>
-            <version>3.5.4</version>
-        </dependency>
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_hotspot</artifactId>
-            <version>0.0.23</version>
-        </dependency>
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_dropwizard</artifactId>
-            <version>0.0.23</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.yunyu</groupId>
-            <artifactId>prometheus-jvm-extras</artifactId>
-            <version>1.2-SNAPSHOT</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-metrics</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-dropwizard-metrics</artifactId>
+        <version>3.5.4</version>
+    </dependency>
+    <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient_hotspot</artifactId>
+        <version>0.0.23</version>
+    </dependency>
+    <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient_dropwizard</artifactId>
+        <version>0.0.23</version>
+    </dependency>
+    <dependency>
+        <groupId>com.github.yunyu</groupId>
+        <artifactId>prometheus-jvm-extras</artifactId>
+        <version>1.2-SNAPSHOT</version>
+    </dependency>
+```
 
 Once these have been added, enable metrics when starting your application and [set a name for the registry](http://vertx.io/docs/vertx-dropwizard-metrics/java/#_command_line_activation). For example, you can add the following flags:
 
@@ -95,11 +101,13 @@ Once these have been added, enable metrics when starting your application and [s
 
 Then, acquire a reference to the metrics registry to create the page. For example:
 
-        MetricRegistry dropwizardRegistry = SharedMetricRegistries.getOrCreate(
-                System.getProperty("vertx.metrics.options.registryName") // or use hardcoded name
-        );
-        // Set up web console registry
-        webConsoleRegistry.addPage(MetricsConsolePage.create(dropwizardRegistry));
+```java
+    MetricRegistry dropwizardRegistry = SharedMetricRegistries.getOrCreate(
+            System.getProperty("vertx.metrics.options.registryName") // or use hardcoded name
+    );
+    // Set up web console registry
+    webConsoleRegistry.addPage(MetricsConsolePage.create(dropwizardRegistry));
+```
 
 If you are not using the [Vert.x launcher](http://vertx.io/docs/vertx-core/java/#_the_vert_x_launcher) to start your application, you may need to pass the metrics flags into [DropwizardMetricsOptions](http://vertx.io/docs/apidocs/io/vertx/ext/dropwizard/DropwizardMetricsOptions.html) on startup.
 
@@ -112,17 +120,21 @@ The metrics page uses the default Prometheus registry. If you wish to use it wit
 This page displays a filterable list of the service records available to Vert.x.
 It requires the following dependency (assuming that you have already [set up service discovery](http://vertx.io/docs/vertx-service-discovery/java/#_creating_a_service_discovery_instance)):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-services</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-services</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once these have been added, pass your service discovery instance to the console page. For example:
 
-        // ServiceDiscovery discovery = ...
-        // Set up web console registry
-        webConsoleRegistry.addPage(ServicesConsolePage.create(discovery));
+```java
+    // ServiceDiscovery discovery = ...
+    // Set up web console registry
+    webConsoleRegistry.addPage(ServicesConsolePage.create(discovery));
+```
 
 # vertx-console-logging
 
@@ -131,16 +143,20 @@ Once these have been added, pass your service discovery instance to the console 
 This page allows you to view and configure loggers and their outputs. It is currently only compatible with Logback and SLF4J (due to difficulties with integrating appenders with Log4J2).
 It requires the following dependency (assuming that you already have Logback and SLF4J configured in your application):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-logging</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-logging</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once this has been added, you can add the console page directly. For example:
 
-        // Set up web console registry
-        webConsoleRegistry.addPage(LoggingConsolePage.create());
+```java
+    // Set up web console registry
+    webConsoleRegistry.addPage(LoggingConsolePage.create());
+```
 
 # vertx-console-circuit-breakers
 
@@ -149,16 +165,20 @@ Once this has been added, you can add the console page directly. For example:
 This page allows you to view the status of the circuit breakers in your application.
 It requires the following dependency (assuming that you have already [set up circuit breakers](http://vertx.io/docs/vertx-circuit-breaker/java/#_using_the_vert_x_circuit_breaker)):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-circuit-breakers</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-circuit-breakers</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once this has been added, you can add the console page directly. For example:
 
-        // Set up web console registry
-        webConsoleRegistry.addPage(CircuitBreakersConsolePage.create());
+```java
+    // Set up web console registry
+    webConsoleRegistry.addPage(CircuitBreakersConsolePage.create());
+```
 
 # vertx-console-shell
 
@@ -167,21 +187,25 @@ Once this has been added, you can add the console page directly. For example:
 This page allows you to administer your application via [Vert.x-Shell](http://vertx.io/docs/vertx-shell/java/#_base_commands).
 It requires the following dependencies (note: the versions listed may not be the most recent, you can use newer versions):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-shell</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-shell</artifactId>
-            <version>3.5.4</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-shell</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-shell</artifactId>
+        <version>3.5.4</version>
+    </dependency>
+```
 
 Once these have been added, you can add the console page directly. For example:
 
-        // Set up web console registry
-        webConsoleRegistry.addPage(ShellConsolePage.create());
+```java
+    // Set up web console registry
+    webConsoleRegistry.addPage(ShellConsolePage.create());
+```
 
 # vertx-console-health
 
@@ -190,16 +214,20 @@ Once these have been added, you can add the console page directly. For example:
 This page allows you to view the status of the health checks in your application.
 It requires the following dependency (assuming that you have already [set up health checks](http://vertx.io/docs/vertx-health-check/java/#_using_vert_x_health_checks)):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-health</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-health</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once these have been added, pass your health checks instance to the console page. For example:
 
-        // Set up web console registry
-        webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
+```java
+    // Set up web console registry
+    webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
+```
 
 # vertx-console-pools
 
@@ -209,17 +237,21 @@ This page allows you to view the status of the worker and data source pools in y
 You need to have a working metrics setup in order to use it (see the [vertx-console-metrics](#vertx-console-metrics) section for details), but adding the Overview page is optional.
 It requires the following dependency (on top of the ones necessary for metrics):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-pools</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-pools</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once these have been added, pass your MetricsService instance to the console page. For example:
 
-        // Set up web console registry
-        MetricsService metricsService = MetricsService.create(vertx);
-        webConsoleRegistry.addPage(PoolsConsolePage.create(metricsService));
+```java
+    // Set up web console registry
+    MetricsService metricsService = MetricsService.create(vertx);
+    webConsoleRegistry.addPage(PoolsConsolePage.create(metricsService));
+```
 
 # vertx-console-eventbus
 
@@ -228,17 +260,21 @@ Once these have been added, pass your MetricsService instance to the console pag
 This page provides an overview of the event bus activity in your application, with message rates for monitored addresses (see [setup instructions](http://vertx.io/docs/vertx-dropwizard-metrics/java/#_event_bus_metrics)).
 It requires the following dependency (on top of the ones necessary for metrics):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-eventbus</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-eventbus</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once these have been added, pass your MetricsService instance to the console page. For example:
 
-        // Set up web console registry
-        MetricsService metricsService = MetricsService.create(vertx);
-        webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+```java
+    // Set up web console registry
+    MetricsService metricsService = MetricsService.create(vertx);
+    webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+```
 
 # vertx-console-http-clients
 
@@ -247,20 +283,24 @@ Once these have been added, pass your MetricsService instance to the console pag
 This page provides an overview of the HTTP clients that are used in your application.
 It requires the following dependency (on top of the ones necessary for metrics):
 
-        <dependency>
-            <groupId>com.github.yunyu.vertx-console</groupId>
-            <artifactId>vertx-console-http-clients</artifactId>
-            <version>${vertx.console.version}</version>
-        </dependency>
+```xml
+    <dependency>
+        <groupId>com.github.yunyu.vertx-console</groupId>
+        <artifactId>vertx-console-http-clients</artifactId>
+        <version>${vertx.console.version}</version>
+    </dependency>
+```
 
 Once these have been added, pass your MetricsService instance to the console page. For example:
 
-        // Set up web console registry
-        MetricsService metricsService = MetricsService.create(vertx);
-        webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+```java
+    // Set up web console registry
+    MetricsService metricsService = MetricsService.create(vertx);
+    webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+```
 
 # API
 
-Javadocs for the latest version are available [on JitPack](https://jitpack.io/com/github/yunyu/vertx-console/vertx-console-parent/95c911d7f0/javadoc/).
+Javadocs for the latest version are available [on JitPack](https://jitpack.io/com/github/yunyu/vertx-console/vertx-console-parent/ca8b2b517f/javadoc/).
 
 If you are developing a console page, please see the [example project template](https://github.com/yunyu/vertx-console-example).
