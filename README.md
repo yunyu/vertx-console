@@ -1,5 +1,4 @@
-Vert.x Console
-==
+# Vert.x Console
 
 [![Release](https://jitpack.io/v/yunyu/vertx-console.svg?style=flat-square)](https://jitpack.io/#yunyu/vertx-console)
 
@@ -37,7 +36,7 @@ To use, merge the following into your POM (or the equivalent into your Gradle bu
 
 Then, create a `WebConsoleRegistry` in your application with a specified path, add the pages you wish to display, and mount it to a router:
 
-	// Example with several pages loaded
+    // Example with several pages loaded
     WebConsoleRegistry.create("/admin")
     		// Add pages
             .addPage(MetricsConsolePage.create(dropwizardRegistry))
@@ -57,8 +56,7 @@ See Vert.x Web documentation for details ([regarding auth](http://vertx.io/docs/
 
 The console will be accessible at the specified path (`/admin` in this example).
 
-vertx-console-metrics
-==
+# vertx-console-metrics
 
 ![](https://i.imgur.com/pWcM3TY.png)
 
@@ -73,7 +71,7 @@ It requires the following dependencies (note: the versions listed may not be the
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-dropwizard-metrics</artifactId>
-            <version>3.5.1</version>
+            <version>3.5.4</version>
         </dependency>
         <dependency>
             <groupId>io.prometheus</groupId>
@@ -107,8 +105,7 @@ If you are not using the [Vert.x launcher](http://vertx.io/docs/vertx-core/java/
 
 The metrics page uses the default Prometheus registry. If you wish to use it with another registry, register the appropriate collectors as [listed here](https://github.com/yunyu/vertx-console-metrics/blob/49a70a5ea43f9bf7d6961278a756d378225f1748/src/main/java/in/yunyul/vertx/console/metrics/MetricsConsolePage.java#L24), and use `MetricsConsolePage.create(CollectorRegistry myPrometheusRegistry)`.
 
-vertx-console-services
-==
+# vertx-console-services
 
 ![](https://i.imgur.com/dfbvdHO.png)
 
@@ -127,8 +124,7 @@ Once these have been added, pass your service discovery instance to the console 
         // Set up web console registry
         webConsoleRegistry.addPage(ServicesConsolePage.create(discovery));
 
-vertx-console-logging
-==
+# vertx-console-logging
 
 ![](https://i.imgur.com/KU8PoSX.png)
 
@@ -146,8 +142,7 @@ Once this has been added, you can add the console page directly. For example:
         // Set up web console registry
         webConsoleRegistry.addPage(LoggingConsolePage.create());
 
-vertx-console-circuit-breakers
-==
+# vertx-console-circuit-breakers
 
 ![](https://i.imgur.com/G56nGtH.png)
 
@@ -165,8 +160,7 @@ Once this has been added, you can add the console page directly. For example:
         // Set up web console registry
         webConsoleRegistry.addPage(CircuitBreakersConsolePage.create());
 
-vertx-console-shell
-==
+# vertx-console-shell
 
 ![](https://i.imgur.com/DlmyqeK.png)
 
@@ -181,7 +175,7 @@ It requires the following dependencies (note: the versions listed may not be the
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-shell</artifactId>
-            <version>3.5.1</version>
+            <version>3.5.4</version>
         </dependency>
 
 Once these have been added, you can add the console page directly. For example:
@@ -189,8 +183,7 @@ Once these have been added, you can add the console page directly. For example:
         // Set up web console registry
         webConsoleRegistry.addPage(ShellConsolePage.create());
 
-vertx-console-health
-==
+# vertx-console-health
 
 ![](https://i.imgur.com/W4tKZtw.png)
 
@@ -208,8 +201,7 @@ Once these have been added, pass your health checks instance to the console page
         // Set up web console registry
         webConsoleRegistry.addPage(HealthConsolePage.create(healthChecks));
 
-vertx-console-pools
-==
+# vertx-console-pools
 
 ![](https://i.imgur.com/9w4kk5U.png)
 
@@ -229,8 +221,7 @@ Once these have been added, pass your MetricsService instance to the console pag
         MetricsService metricsService = MetricsService.create(vertx);
         webConsoleRegistry.addPage(PoolsConsolePage.create(metricsService));
 
-vertx-console-eventbus
-==
+# vertx-console-eventbus
 
 ![](https://i.imgur.com/NovstcH.png)
 
@@ -249,12 +240,11 @@ Once these have been added, pass your MetricsService instance to the console pag
         MetricsService metricsService = MetricsService.create(vertx);
         webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
 
-vertx-console-http-clients
-==
+# vertx-console-http-clients
 
 ![](https://i.imgur.com/ZMNSQtj.png)
 
-This page provides an overview of the HTTP clients that are used in your application. 
+This page provides an overview of the HTTP clients that are used in your application.
 It requires the following dependency (on top of the ones necessary for metrics):
 
         <dependency>
@@ -269,8 +259,7 @@ Once these have been added, pass your MetricsService instance to the console pag
         MetricsService metricsService = MetricsService.create(vertx);
         webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
 
-API
-==
+# API
 
 Javadocs for the latest version are available [on JitPack](https://jitpack.io/com/github/yunyu/vertx-console/vertx-console-parent/95c911d7f0/javadoc/).
 
