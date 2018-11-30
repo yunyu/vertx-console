@@ -296,7 +296,7 @@ Once these have been added, pass your MetricsService instance to the console pag
 ```java
     // Set up web console registry
     MetricsService metricsService = MetricsService.create(vertx);
-    webConsoleRegistry.addPage(EventBusConsolePage.create(metricsService));
+    webConsoleRegistry.addPage(HttpClientsConsolePage.create(metricsService));
 ```
 
 # API
